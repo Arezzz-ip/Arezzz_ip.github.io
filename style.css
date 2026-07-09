@@ -1,80 +1,109 @@
-    .ig-button img {
-        width: 80px;
-        height: 80px;
-        object-fit: cover;
-        border-radius: 20px;
-        border: 2px solid #ffffff;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-    }
-
-    .ig-button:hover img {
-        content: url("IMAGENES/IG.jpg");
-    }
-
-.ig-style {
-    display:inline-block; 
-    background:linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d, #f56040, #f77737, #fcaf45, #ffdc80); 
-    -webkit-background-clip:text; 
-    -webkit-text-fill-color:transparent;
-}
-
+/*************************Esto cambia el fondo xd**********************************/
 body{
     background-image: url("IMAGENES/Fondo.jfif");
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-}
+    background-repeat: no-repeat;}
 
+/*************************Esto son las letras del inicio***************************/
 .intro{
     font-family: monospace;
     background: rgba(18, 18, 18, 0.75);
+    backdrop-filter:blur(1px);
     text-shadow: 0 0 6px rgba(223, 16, 1, 0.562);
     color: rgb(120, 15, 15);
     font-size: 15px;
     width: 900px;
     padding: 15px;
     border-radius: 15px;
-    margin: 15px auto;
-}
+    margin: 15px auto;}
 
+/*************************Esto quita el subrayado de los links*********************/
+a{
+    text-decoration:none;}
+
+/*************************Esto es para el efecto de las letras de instagram*******/
+.ig-style {
+    display:inline-block; 
+    background:linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d, #f56040, #f77737, #fcaf45, #ffdc80); 
+    -webkit-background-clip:text; 
+    -webkit-text-fill-color:transparent;}
+
+/*************************Esto es la carta principal de instagram y probablemente de las demás*/
 .card{
+    display:inline-flex;
+    align-items:flex-start;
+    width:max-content;
+    height:120px;
+    perspective:10000px;
+    gap:0px;
+    overflow:visible;
+    cursor:pointer;}
+
+/*************************Esto es lo que va a girar*******************************/
+.flip{
     width:120px;
     height:120px;
-    display:block;
-    perspective:1000px;
-    text-decoration:none;
-}
-
-.card-inner{
-    width:100%;
-    height:100%;
     position:relative;
-    transition:transform 0.8s;
+    flex-shrink:0;
     transform-style:preserve-3d;
-}
+    transition:transform 0.8s;}
 
-.card:hover .card-inner{
-    transform:rotateX(180deg);
-}
+/*************************Esto es el giro de la carta*****************************/
+.card:hover .flip{
+    transform:rotateY(180deg);}
 
-.card-front,
-.card-back{
+/*************************Esto son las propiedades de cada lado de la carta*******/
+.front, .back{
     position:absolute;
-    width:100%;
-    height:100%;
+    inset:0;
     backface-visibility:hidden;
-}
+    -webkit-backface-visibility:hidden;}
 
-.card-front img,
-.card-back img{
+/*************************Esto es para que la foto de atras se vea bien y no volteada*/
+.back{
+    transform:rotateY(180deg);}
+
+/*************************Esto es para las propiedades de las fotos*************/
+.front img, .back img{
     width:100%;
     height:100%;
     object-fit:cover;
     border-radius:20px;
-    border:2px solid white;
-    box-shadow:0 0 8px rgba(0,0,0,0.4);
-}
+    box-shadow:0 0 10px rgba(0,0,0,0.4);}
 
-.card-back{
-    transform:rotateX(180deg);
-}
+/*************************Esto son la propiedades del panel que sale*************/
+.panel{
+    height:120px;
+    width:340px;
+    margin-left:15px;
+    background:rgba(18,18,18,0.75);
+    backdrop-filter:blur(1px);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:25px;
+    overflow:hidden;
+    opacity:0;
+    transform:translateX(-160px) rotate(0deg);
+    transition:
+        transform 0.6s ease,
+        opacity 0.4s ease;}
+
+/*************************Esto son las propiedades de las letras del panel******/
+.panel-content{
+    box-sizing:border-box;
+    width:100%;
+    height:100%;
+    padding:8px;
+    color:white;
+    white-space:normal;
+    overflow-wrap:break-word;
+    font-size:15px;}
+
+/*************************Esto es para que no se vea el margen de las letras del panel*/
+.panel-content p, .panel-content h1, .panel-content h2, .panel-content h3{
+    margin-top:0;}
+
+/*************************Esto es para revelar el panel con el mouse***********/
+.card:hover .panel{
+    opacity:1;
+    transform:translateX(0);}
