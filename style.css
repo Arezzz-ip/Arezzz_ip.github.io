@@ -5,6 +5,21 @@ body{
     background-position: center;
     background-repeat: no-repeat;}
 
+/*************************Esto es para el título***********************************/
+.title{
+    font-family: monospace;
+    background: rgba(18, 18, 18, 0.75);
+    backdrop-filter:blur(1px);
+    text-shadow: 0 0 6px rgba(223, 16, 1, 0.562);
+    color: rgb(120, 15, 15);
+    font-size: 40px;
+    width: 900px;
+    padding: 15px;
+    border-radius: 15px;
+    margin: 15px auto;
+    text-align:center;
+}
+
 /*************************Esto son las letras del inicio***************************/
 .intro{
     font-family: monospace;
@@ -22,10 +37,24 @@ body{
 a{
     text-decoration:none;}
 
-/*************************Esto es para el efecto de las letras de instagram*******/
+/*************************Esto es para el efecto de las letras de Instagram*******/
 .ig-style {
     display:inline-block; 
     background:linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d, #f56040, #f77737, #fcaf45, #ffdc80); 
+    -webkit-background-clip:text; 
+    -webkit-text-fill-color:transparent;}
+
+/*************************Esto es para el efecto de las letras de Twitter*********/
+.tw-style {
+    display:inline-block; 
+    background:linear-gradient(45deg, #1DA1F2, #0d8ddb, #0a7cc3, #0869aa, #065b92); 
+    -webkit-background-clip:text; 
+    -webkit-text-fill-color:transparent;}
+
+/*************************Esto es para el efecto de las letras de Spotify**********/
+.sp-style {
+    display:inline-block; 
+    background: linear-gradient(135deg, #0A5C2B, #169C46, #1DB954); 
     -webkit-background-clip:text; 
     -webkit-text-fill-color:transparent;}
 
