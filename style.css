@@ -1,13 +1,28 @@
 /*************************Esto cambia el fondo xd**********************************/
 body{
-    background-image: url("IMAGENES/Fondo.jfif");
-    background-size: cover;
-    background-position: center;
+    background-image: url("IMAGENES/F2.jfif");
+    background-size: 100% auto;
+    background-position:top;
     background-repeat: no-repeat;}
 
-/*************************Esto es para el título***********************************/
+/*************************Esto es para el reloj de la página*******************/
+#clock{
+    font-family:"IBM Plex Mono", monospace;
+    background:rgba(18,18,18,0.75);
+    backdrop-filter:blur(1px);
+    border-radius:10px;
+    height:max-content;
+    width:max-content;
+    padding: 5px;
+    color: rgb(120, 15, 15);
+    position: fixed;
+    top:20px;
+    right:10px;
+    font-size:15px;}
+
+    /*************************Esto es para el título***********************************/
 .title{
-    font-family: monospace;
+    font-family: "Bebas Neue", sans-serif;
     background: rgba(18, 18, 18, 0.75);
     backdrop-filter:blur(1px);
     text-shadow: 0 0 6px rgba(223, 16, 1, 0.562);
@@ -17,17 +32,16 @@ body{
     padding: 15px;
     border-radius: 15px;
     margin: 15px auto;
-    text-align:center;
-}
+    text-align:center;}
 
 /*************************Esto son las letras del inicio***************************/
 .intro{
-    font-family: monospace;
-    background: rgba(18, 18, 18, 0.75);
+    font-family: "JetBrains Mono", monospace;
+    background: rgba(18, 18, 18, 0.85);
     backdrop-filter:blur(1px);
-    text-shadow: 0 0 6px rgba(223, 16, 1, 0.562);
+    text-shadow: 0 0 6px rgba(223, 16, 1, 0.435);
     color: rgb(120, 15, 15);
-    font-size: 15px;
+    font-size: 18px;
     width: 900px;
     padding: 15px;
     border-radius: 15px;
@@ -130,9 +144,125 @@ a{
 
 /*************************Esto es para que no se vea el margen de las letras del panel*/
 .panel-content p, .panel-content h1, .panel-content h2, .panel-content h3{
-    margin-top:0;}
+    margin-top:0;
+    margin:2px 0;}
 
 /*************************Esto es para revelar el panel con el mouse***********/
 .card:hover .panel{
     opacity:1;
     transform:translateX(0);}
+
+#secreto{
+    display:none;
+    font-family: "Bebas Neue", sans-serif;
+    background: rgba(18, 18, 18, 1);
+    backdrop-filter:blur(1px);
+    color:rgb(255,30,0);
+    text-shadow:
+        0 0 3px rgb(255,0,0),
+        0 0 8px rgba(255,0,0,0.7),
+        1px 1px 2px black;
+    font-size: 35px;
+    width: 900px;
+    padding: 15px;
+    border-radius: 50px;
+    text-align:center;
+    position: absolute;
+    top: 100px;
+    left: 200px;
+    transform: rotate(5deg);}
+
+/*************************Esto es para el efecto de caida**********************/
+.Imagen img{
+    width:400px;
+    height:400px;
+    object-fit:contain;}
+.Imagen{
+    position: absolute;
+    top: -500px;
+    left: 500px;}
+.caida .Imagen{
+    transform:
+        translate(0px,530px);}
+.caida .title{
+    transform-origin: top right;
+    transform: rotate(-80deg);
+    transition: transform 1s;}
+.caida .intro{
+    transform:
+        rotate(20deg)
+        translate(100px,340px);}
+.caida .card1{
+    transform:
+        translate(500px,250px)
+        rotate(35deg);}
+.caida .card2{
+    transform:
+        translate(300px,210px)
+        rotate(-190deg);}
+.caida .card3{ 
+    transform:
+        translate(300px,0px)
+        rotate(-40deg);}
+.caida .card4{ 
+    transform:
+        translate(300px,100px)
+        rotate(15deg);}
+.caida .card5{ 
+    transform:
+        translate(60px, -100px)
+        rotate(-35deg);}
+.title{transition:1s;}
+.intro{transition:1.3s;}
+.card1{transition:1.5s;}
+.card2{transition:1.0s;}
+.card3{transition:1.0s;}
+.card4{transition:1.5s;}
+.card5{transition:2.2s;}
+.Imagen{transition:2.2s;}
+
+/*************************Efecto de temblar***********************************/
+@keyframes temblar{
+    0%{transform:translateX(0);}
+    25%{transform:translateX(-10px);}
+    50%{transform:translateX(10px);}
+    75%{transform:translateX(5px);}
+    100%{transform:translateX(0);}}
+.caida{animation:temblar .4s infinite;}
+
+#sangre{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:999;}
+
+.gota{
+    position:absolute;
+    top:-50px;
+    width:15px;
+    height:35px;
+    background:rgb(180,0,0);
+    clip-path:polygon(
+        50% 0%,
+        65% 18%,
+        80% 38%,
+        90% 58%,
+        88% 72%,
+        75% 88%,
+        50% 100%,
+        25% 88%,
+        12% 72%,
+        10% 58%,
+        20% 38%,
+        35% 18%
+    );
+    opacity:0.8;
+    animation:caer linear infinite;}
+
+@keyframes caer{
+    0%{transform:translateY(-50px);}
+    100%{transform:translateY(110vh);}}
