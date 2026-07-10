@@ -137,7 +137,7 @@ a{
     width:100%;
     height:100%;
     padding:8px;
-    color:white;
+    color:rgb(120, 120, 125);
     white-space:normal;
     overflow-wrap:break-word;
     font-size:15px;}
@@ -171,7 +171,7 @@ a{
     top: 100px;
     left: 200px;
     transform: rotate(5deg);}
-
+    
 /*************************Esto es para el efecto de caida**********************/
 .Imagen img{
     width:400px;
@@ -184,6 +184,20 @@ a{
 .caida .Imagen{
     transform:
         translate(0px,530px);}
+.Imagen2 img{
+    width:150px;
+    height:113px;
+    border-radius:15px;
+    overflow: hidden;}
+.Imagen2{
+    position: absolute;
+    top: -200px;
+    left: 100px;}
+.caida .Imagen2{
+    transform:
+        translate(0px,250px)
+        rotate(10deg);
+    transition: transform 1s;}
 .caida .title{
     transform-origin: top right;
     transform: rotate(-80deg);
@@ -220,7 +234,6 @@ a{
 .card4{transition:1.5s;}
 .card5{transition:2.2s;}
 .Imagen{transition:2.2s;}
-
 /*************************Efecto de temblar***********************************/
 @keyframes temblar{
     0%{transform:translateX(0);}
